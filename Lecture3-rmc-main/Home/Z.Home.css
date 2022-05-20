@@ -1,0 +1,20 @@
+.jumbotron{
+  height:720px;
+  background-repeat: no-repeat;
+}
+#water{
+  border-style:double double solid double;
+  border-width:9px;
+  width:600px;
+  color:black;
+  background-color:white;
+}
+.fire{
+  width: 1500px;
+  color:white;
+  background-color: transparent;
+}
+
+#bottom{
+  color: red;
+}

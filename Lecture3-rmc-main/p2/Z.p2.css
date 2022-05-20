@@ -1,0 +1,63 @@
+.jumbotron{
+    height:720px;
+    background-repeat: no-repeat;
+  }
+
+  
+  #bottom{
+    color: red;
+  }
+
+  
+  /*.tableFixHead          { overflow: auto; height: 100px; }
+  .tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+  
+  table  { border-collapse: collapse; width: 100%; }
+  th, td { padding: 8px 16px; }
+  th     { background:#eee; } */
+
+  :root {
+    --height-height: 150px;
+    /* cell width has to reserve some space for scrolling. Hence the sum < 100% */
+    --cell-width: 85px;
+  }
+  
+  .header-fixed {
+    width: 200px;
+  }
+  
+  /* Treat all as divs */
+  .header-fixed > thead,
+  .header-fixed > tbody,
+  .header-fixed > thead > tr,
+  .header-fixed > tbody > tr,
+  .header-fixed > thead > tr > th,
+  .header-fixed > tbody > tr > td {
+    display: block;
+  }
+  
+  /* Prevent header to wrap */
+  .header-fixed > thead > tr > th {
+    white-space: nowrap;
+    background-color: lightgrey;
+  }
+  
+  .header-fixed > tbody > tr:after,
+  .header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+  }
+  
+  .header-fixed > tbody {
+    overflow-y: auto;
+    height: var(--height-height);
+  }
+  
+  .header-fixed > tbody > tr > td,
+  .header-fixed > thead > tr > th {
+    width: var(--cell-width);
+    border: thin solid grey;
+    float: left;
+  }

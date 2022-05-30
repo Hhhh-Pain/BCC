@@ -1,48 +1,40 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-// EXAMPLE One
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+var canvas = document.getElementById("hm.");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+var ctx = canvas.getContext("2d");
+
+var x = 0;
+var y = 0;
+var incrementor = 2;
 
 
-// First we will create our prompts outside of the function
-// Below we created a prompt and connected the prompt answer to the variable promptAnswer
+function Square() {
+  ctx.fillStyle = "burple";
+  ctx.fillRect(x, y, 300, y);
 
-  var name = prompt('What is your name?');
-  var promptAnswer = "Yesterday  " + name + "  entered the spaceship";
+  ctx.fillStyle = "Green";
+  ctx.fillRect(0, 6, y, -100);
 
-
-  // Now we have our function with two parameters
-
-function paramters(input1, input2) {
-
-
-// below we will create a piece of code for the answers to show up on the html page.
-
-    var result = input1 + input2;
-    document.getElementById("blankTwo").innerHTML = result;
+  ctx.fillStyle = "Blue";
+  ctx.fillRect(-x, y, 400, x);
 }
 
-// here we have a method that will run the function and we are entering the arguments to pass through.
+function drawBoxxy() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-paramters( promptAnswer , '  and yelled out  ', 'Ganoosh!!');
+  ctx.font = "100px Times New Roman";
+  ctx.fillStyle = "purple";
+  ctx.fillText("wheeeeee!!", 0, y);
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-// EXAMPLE Two
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/*
-// First we will create our prompts outside of the function
-// Below we created a prompt and connected the prompt answer to the variable promptAnswer
-var name = prompt('What is your name?');
-var promptAnswer = "Yesterday  " + name + "  entered the spaceship   ";
-var secretMessage = prompt('What is your secret message?');
-function sumNumbers(num1, num2, num3) {
-  var result = num1 + num2 + num3;
-  document.getElementById("blankTwo").innerHTML = result;
+  Square();
+  while (x + incrementor > canvas.width || x + incrementor < 0) {
+    incrementor = -incrementor;
+  }
+  while (y + incrementor > canvas.height || y + incrementor < 0) {
+    incrementor = -incrementor;
+  }
+  x += incrementor;
+  y += incrementor;
 }
-sumNumbers( promptAnswer , secretMessage , '!!!!!!!');
-*/
 
- /////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Now Add the 3rd Argument!!
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+setInterval(drawBoxxy, 10);
